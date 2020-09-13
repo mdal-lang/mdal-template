@@ -1,0 +1,29 @@
+{
+  "id": "bb2c510d-e7c1-46bf-8026-649a7bbe7704",
+  "name": "Seminar Management",
+  "publisher": "joneug",
+  "version": "1.0.0.0",
+  "dependencies": [
+    {
+      "id": "63ca2fa4-4f03-4f2b-a480-172fef340d3f",
+      "publisher": "Microsoft",
+      "name": "System Application",
+      "version": "16.0.0.0"
+    },
+    {
+      "id": "437dbf0e-84ff-417a-965d-ed2bb9650972",
+      "publisher": "Microsoft",
+      "name": "Base Application",
+      "version": "16.0.0.0"
+    }
+  ],
+  "platform": "16.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 501020
+    }
+  ],
+  "showMyCode": true,
+  "runtime": "5.0"
+}
