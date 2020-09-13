@@ -11,15 +11,17 @@ jobs:
       TEST_USERNAME: docker
       TEST_PASSWORD: tmpBCContainerPWD1!
       CONTAINER_NAME: tmp
-      APP_NAME: seminar-management.app
+      APP_NAME: example.app
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
       - name: Generate AL Code
         uses: mdal-lang/mdal-action@v1
         with:
-          model-file: src/seminar-management.mdal
-      - uses: actions/upload-artifact@v2
+          model-file: src/model.mdal
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
         with:
           name: generated-code
           path: src-gen
@@ -35,7 +37,7 @@ jobs:
             -auth NavUserPassword `
             -credential (New-Object PSCredential $env:TEST_USERNAME, (ConvertTo-SecureString $env:TEST_PASSWORD -AsPlainText -Force)) `
             -additionalParameters @('--volume ' + '"' + (Join-Path $pwd ":c:\share") + '"')
-      - name: Build App
+      - name: Package Extension
         run: |
           Compile-AppInBCContainer `
             -containerName $env:CONTAINER_NAME `
@@ -43,7 +45,8 @@ jobs:
             -appProjectFolder $pwd `
             -appOutputFolder $pwd `
             -appName $env:APP_NAME
-      - uses: actions/upload-artifact@v2
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
         with:
           name: ${{ env.APP_NAME }}
           path: ${{ env.APP_NAME }}
