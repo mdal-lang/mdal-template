@@ -1,7 +1,7 @@
 {
   "id": "bb2c510d-e7c1-46bf-8026-649a7bbe7704",
-  "name": "Seminar Management",
-  "publisher": "joneug",
+  "name": "Example Extension",
+  "publisher": "example",
   "version": "1.0.0.0",
   "dependencies": [
     {
@@ -21,7 +21,7 @@
   "idRanges": [
     {
       "from": 50100,
-      "to": 501020
+      "to": 50200
     }
   ],
   "showMyCode": true,
